@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facebook Style Login Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook" class="logo" />
+      <form class="login-form">
+        <input type="text" placeholder="Email or phone number" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="content">
+      <h1>Facebook helps you connect and share with the people in your life.</h1>
+      <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook" class="main-image" />
+    </div>
+    <div class="signup-box">
+      <h2>Create a new account</h2>
+      <p>It's quick and easy.</p>
+      <form class="signup-form">
+        <input type="text" placeholder="First name" required />
+        <input type="text" placeholder="Surname" required />
+        <input type="email" placeholder="Mobile number or email address" required />
+        <input type="password" placeholder="New password" required />
+        <div class="birthday">
+          <label>Birthday</label>
+          <select name="day" required>
+            <option value="" disabled selected>Day</option>
+            <!-- Days 1 - 31 -->
+            ${Array.from({length:31}, (_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}
+          </select>
+          <select name="month" required>
+            <option value="" disabled selected>Month</option>
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+          </select>
+          <select name="year" required>
+            <option value="" disabled selected>Year</option>
+            <!-- Years -->
+            ${Array.from({length:120}, (_,i)=>`<option value="${2024-i}">${2024-i}</option>`).join('')}
+          </select>
+        </div>
+        <div class="gender">
+          <label>
+            <input type="radio" name="gender" value="female" required /> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="male" required /> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="custom" required /> Custom
+          </label>
+        </div>
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+      <p class="terms">
+        By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy.
+      </p>
+    </div>
+  </main>
+</body>
+</html>
+
+/* styles.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  color: #1c1e21;
+}
+
+.header {
+  background-color: #4267b2;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+}
+
+.container {
+  width: 980px;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+.login-form {
+  display: flex;
+  gap: 8px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  width: 180px;
+}
+
+.login-form button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.login-form button:hover {
+  background-color: #165ec9;
+}
+
+.main-container {
+  width: 980px;
+  max-width: 100%;
+  margin: 40px auto 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.content {
+  flex: 1 1 55%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1c1e21;
+  margin-bottom: 10px;
+}
+
+.main-image {
+  width: 200px;
+  margin-top: 20px;
+}
+
+.signup-box {
+  flex: 1 1 35%;
+  max-width: 350px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+}
+
+.signup-box h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.signup-box p {
+  font-size: 17px;
+  margin-bottom: 20px;
+  color: #606770;
+}
+
+.signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form select {
+  width: 100%;
+  padding: 12px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #dddfe2;
+  outline: none;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.signup-form select {
+  width: auto;
+  flex: 1 1 30%;
+}
+
+.birthday {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.birthday label {
+  flex: 0 0 80px;
+  font-size: 14px;
+  color: #606770;
+  font-weight: 600;
+}
+
+.gender {
+  margin-bottom: 20px;
+}
+
+.gender label {
+  font-size: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.gender input[type="radio"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background-color: #42b72a;
+  color: white;
+  font-weight: 700;
+  padding: 14px 0;
+  font-size: 20px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #36a420;
+}
+
+.terms {
+  margin-top: 20px;
+  font-size: 11px;
+  color: #606770;
+  line-height: 1.4;
+}
